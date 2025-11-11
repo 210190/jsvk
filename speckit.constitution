@@ -1,0 +1,36 @@
+# speckit.constitution
+
+## 專案概述
+jsvk 是一個前端靜態網站專案，可部署於 GitHub Pages。
+
+## 技術棧
+- 純 HTML/CSS/JavaScript
+- 不使用框架（保持簡單）
+- 靜態檔案結構
+
+## 專案結構
+```
+/
+├── index.html          # 首頁
+├── css/               # 樣式檔
+├── js/                # JavaScript 檔
+├── assets/            # 圖片、字型等靜態資源
+└── README.md
+```
+
+## 開發原則
+1. **簡單優先**：不要過度設計
+2. **靜態為主**：所有內容都是靜態檔案
+3. **相容性**：確保可在 GitHub Pages 上運行
+4. **輕量化**：最小化依賴
+
+## 部署
+- 使用 GitHub Pages
+- 主分支或 gh-pages 分支自動部署
+- 無需建置步驟
+
+## 規範
+- 使用語意化 HTML
+- CSS 檔案模組化組織
+- JavaScript 使用 ES6+ 語法
+- 圖片優化後再上傳

@@ -1,0 +1,54 @@
+/* Responsive Design */
+
+/* Large Desktop (> 1280px) - 4 columns */
+@media (min-width: 1280px) {
+    .vtuber-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Desktop (1024px - 1280px) - 3 columns */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .vtuber-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet (640px - 1023px) - 2 columns */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .vtuber-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .filter-bar {
+        top: 69px;
+    }
+}
+
+/* Mobile (< 640px) - 1 column */
+@media (max-width: 639px) {
+    .vtuber-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header .container {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .search-box {
+        max-width: 100%;
+    }
+    
+    .filter-bar {
+        top: 109px;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+}

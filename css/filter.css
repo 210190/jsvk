@@ -1,0 +1,67 @@
+/* Filter Bar */
+.filter-bar {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-sm) 0;
+    position: sticky;
+    top: 73px;
+    z-index: 99;
+}
+
+.filter-bar .container {
+    display: flex;
+    gap: var(--spacing-xs);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.filter-bar .container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.filter-bar .container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.filter-bar .container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+}
+
+.filter-btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: var(--bg-color);
+    color: var(--text-secondary);
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.filter-btn:hover {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.filter-btn[data-category="唱歌"].active {
+    background-color: var(--tag-sing);
+}
+
+.filter-btn[data-category="雜談"].active {
+    background-color: var(--tag-talk);
+}
+
+.filter-btn[data-category="遊戲"].active {
+    background-color: var(--tag-game);
+}
+
+.filter-btn[data-category="live"].active {
+    background-color: var(--tag-live);
+}

@@ -1,0 +1,195 @@
+# speckit.specify
+
+## 專案名稱
+jsvk - VTuber 直播整合網站
+
+## 專案目標
+建立一個靜態網站，整合 YouTube 平台上的 VTuber 直播資訊，提供分類瀏覽和快速導向功能。
+
+## 核心功能
+
+### 1. VTuber 列表顯示
+- 展示所有收錄的 VTuber
+- 每個 VTuber 卡片顯示：
+  - 頭像/圖片
+  - 名稱
+  - 簡介
+  - 頻道連結
+  - 目前直播狀態（直播中/離線）
+
+### 2. 直播分類系統
+- **唱歌**：歌回、演唱會
+- **雜談**：閒聊、Q&A、互動
+- **遊戲**：各類遊戲實況
+- 支援多標籤（一個直播可能有多個分類）
+
+### 3. 直播導向功能
+- 點擊 VTuber 卡片可導向其 YouTube 頻道
+- 點擊直播中標記可直接進入直播間
+- 在新分頁開啟連結
+
+### 4. VTuber 屬性系統
+每個 VTuber 有以下屬性：
+- **基本資訊**：
+  - 名稱（中文/原文）
+  - YouTube 頻道 ID
+  - 頻道網址
+  - 頭像圖片
+- **分類標籤**：
+  - 主要內容類型（唱歌/雜談/遊戲）
+  - 所屬組織/個人勢
+  - 語言（日文/中文/英文等）
+- **統計資訊**：
+  - 訂閱數（選填）
+  - 常見直播時段（選填）
+
+### 5. 篩選與搜尋
+- 依分類篩選（唱歌/雜談/遊戲）
+- 依直播狀態篩選（直播中/全部）
+- 依組織篩選
+- 關鍵字搜尋 VTuber 名稱
+
+## 資料結構
+
+### VTuber 資料格式（JSON）
+```json
+{
+  "vtubers": [
+    {
+      "id": "unique-id",
+      "name": "VTuber 名稱",
+      "nameOriginal": "原文名稱",
+      "channelId": "YouTube 頻道 ID",
+      "channelUrl": "https://youtube.com/@channel",
+      "avatar": "assets/avatars/vtuber-id.jpg",
+      "description": "簡短介紹",
+      "organization": "所屬組織",
+      "language": "主要語言",
+      "tags": ["唱歌", "遊戲"],
+      "subscribers": "訂閱數（選填）"
+    }
+  ]
+}
+```
+
+## 技術實作
+
+### 檔案結構
+```
+/
+├── index.html              # 主頁
+├── css/
+│   ├── style.css          # 主樣式
+│   └── card.css           # 卡片樣式
+├── js/
+│   ├── main.js            # 主程式
+│   ├── vtubers.js         # VTuber 資料
+│   └── filter.js          # 篩選功能
+├── assets/
+│   └── avatars/           # VTuber 頭像
+└── data/
+    └── vtubers.json       # VTuber 資料檔
+```
+
+### 核心功能實作
+
+#### 1. 資料載入
+- 從 `data/vtubers.json` 載入 VTuber 清單
+- 使用 `fetch` API 讀取 JSON
+
+#### 2. YouTube 直播狀態檢測
+**選項 A（簡單）**：
+- 不即時檢測，由管理者手動更新
+- 提供「前往頻道」按鈕
+
+**選項 B（進階）**：
+- 使用 YouTube Data API v3（需要 API Key）
+- 定期檢查頻道直播狀態
+- 注意：需處理 API 配額限制
+
+#### 3. 卡片渲染
+```javascript
+// 動態生成 VTuber 卡片
+function renderVTuber(vtuber) {
+  // 建立卡片 HTML
+  // 綁定點擊事件
+  // 顯示標籤和狀態
+}
+```
+
+#### 4. 篩選功能
+```javascript
+// 根據條件篩選 VTuber
+function filterVTubers(category, status, keyword) {
+  // 篩選邏輯
+  // 重新渲染列表
+}
+```
+
+## UI/UX 設計
+
+### 版面配置
+- **頂部導覽列**：Logo、篩選按鈕、搜尋框
+- **分類標籤列**：全部、唱歌、雜談、遊戲、直播中
+- **卡片網格**：響應式網格佈局（桌面 4 欄、平板 2 欄、手機 1 欄）
+
+### 卡片設計
+- 圓形或方形頭像
+- 名稱置中或置左
+- 標籤以彩色徽章顯示
+- 直播中標記（紅點或「LIVE」標籤）
+- Hover 效果：陰影、放大
+
+### 色彩方案
+- 主色：依 VTuber 主題調整（建議藍色或紫色）
+- 唱歌標籤：粉紅色
+- 雜談標籤：橙色
+- 遊戲標籤：綠色
+- 直播中：紅色
+
+## 部署方式
+
+### GitHub Pages 設定
+1. 將專案推送至 GitHub repository
+2. 在 Settings > Pages 啟用 GitHub Pages
+3. 選擇主分支作為來源
+4. 網站會在 `https://username.github.io/jsvk` 上線
+
+### 更新流程
+1. 編輯 `data/vtubers.json` 新增/修改 VTuber
+2. 新增頭像至 `assets/avatars/`
+3. Commit 並 Push 至 GitHub
+4. GitHub Pages 自動更新
+
+## 未來擴充（選擇性）
+
+### 第一階段（核心）
+- [x] VTuber 列表展示
+- [x] 分類系統
+- [x] 基本篩選
+- [x] 頻道導向
+
+### 第二階段（進階）
+- [ ] YouTube API 整合（即時直播狀態）
+- [ ] 收藏功能（使用 localStorage）
+- [ ] 深色模式切換
+- [ ] 排序功能（訂閱數、名稱）
+
+### 第三階段（擴展）
+- [ ] 直播通知（需後端支援）
+- [ ] 行事曆檢視（顯示直播排程）
+- [ ] 多平台支援（Twitch、Bilibili）
+
+## 注意事項
+1. **著作權**：確保使用的圖片有授權
+2. **API 限制**：YouTube API 有每日配額限制
+3. **效能**：VTuber 數量過多時需要分頁或虛擬滾動
+4. **隱私**：不收集使用者資料
+5. **更新維護**：資料需要定期手動更新
+
+## 開發優先順序
+1. 建立基本 HTML 結構和 CSS 樣式
+2. 實作資料載入和卡片渲染
+3. 加入篩選和搜尋功能
+4. 優化響應式設計
+5. （選擇性）整合 YouTube API

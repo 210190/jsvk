@@ -1,0 +1,114 @@
+/* VTuber Card */
+.vtuber-card {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.vtuber-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+/* Avatar */
+.vtuber-card .avatar-wrapper {
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+}
+
+.vtuber-card .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+}
+
+/* Live Badge */
+.vtuber-card .live-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--tag-live);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(244, 67, 54, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Name */
+.vtuber-card .name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.vtuber-card .name-original {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Description */
+.vtuber-card .description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+/* Tags */
+.vtuber-card .tags {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.tag-唱歌 {
+    background-color: var(--tag-sing);
+}
+
+.tag-雜談 {
+    background-color: var(--tag-talk);
+}
+
+.tag-遊戲 {
+    background-color: var(--tag-game);
+}
+
+/* Organization Badge */
+.vtuber-card .organization {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+}

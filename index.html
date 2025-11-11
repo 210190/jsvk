@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VTuber 直播整合網站">
+    <title>jsvk - VTuber 直播整合</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/filter.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">jsvk</h1>
+            <div class="search-box">
+                <input type="text" id="search" placeholder="搜尋 VTuber..." autocomplete="off">
+            </div>
+        </div>
+    </header>
+
+    <!-- Filter Bar -->
+    <nav class="filter-bar">
+        <div class="container">
+            <button class="filter-btn active" data-category="all">全部</button>
+            <button class="filter-btn" data-category="唱歌">唱歌</button>
+            <button class="filter-btn" data-category="雜談">雜談</button>
+            <button class="filter-btn" data-category="遊戲">遊戲</button>
+            <button class="filter-btn" data-category="live">直播中</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loading" class="loading">
+                <p>載入中...</p>
+            </div>
+            
+            <!-- Error State -->
+            <div id="error" class="error hidden">
+                <p>⚠️ 載入資料失敗，請重新整理頁面</p>
+            </div>
+            
+            <!-- Empty State -->
+            <div id="empty" class="empty hidden">
+                <p>沒有找到符合的 VTuber</p>
+            </div>
+            
+            <!-- VTuber Grid -->
+            <div id="vtuber-grid" class="vtuber-grid"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 jsvk. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
