@@ -58,11 +58,12 @@
 - [x] 測試資料載入錯誤處理 - 已實作 try-catch 和錯誤狀態
 
 ### 部署
-- [ ] 推送至 GitHub - 準備執行
-- [ ] 啟用 GitHub Pages - 需要手動設定
+- [x] 推送至 GitHub - ✅ 已完成（2025-11-11 05:58 UTC）
+- [ ] 啟用 GitHub Pages - 需要手動設定（進行中）
 - [ ] 驗證線上運作正常 - 待部署後測試
 
 > **部署說明**：詳見 [DEPLOY.md](DEPLOY.md)
+> **設定網址**：https://github.com/210190/jsvk/settings/pages
 
 ---
 
